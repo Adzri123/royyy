@@ -1,0 +1,185 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="Assest/css/style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <img
+        src="Assest/image/LOGO M.M TEAM.png"
+        style="float: left; width: 250px; height: 120px"
+      />
+      <h1>MAT MOTOR TEAM</h1>
+    </div>
+
+    <div class="top">
+      <div class="navbar">
+        <a class="active" href="javascript:void(0)">Home</a>
+        <div class="dropdown">
+          <button>Discovery Us</button>
+          <div class="dropdown-content">
+            <a href="#">About</a>
+            <a href="#">Mission & Vision</a>
+            <a href="#">History</a>
+            <a href="#">Achievement</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button>Product</button>
+          <div class="dropdown-content">
+            <a href="#">Motocyles</a>
+            <a href="#">Accessories</a>
+          </div>
+        </div>
+        <a href="javascript:void(0)">Contact</a>
+        <div class="feedback">
+          <img
+            src="Assest/image/feedback1.png"
+            style="width: 50px; height: 38px; padding: 5px"
+          />
+        </div>
+      </div>
+    </div>
+    <video
+      style="
+        width: 80%;
+        height: auto;
+        margin-left: 10%;
+        position: relative;
+        z-index: -2;
+      "
+      autoplay
+      muted
+      loop
+      id="theplayer"
+    >
+      <source src="Assest/video/Video.mp4" type="video/mp4" />
+    </video>
+
+    <input type="checkbox" id="volume-switcher" />
+    <label id="switcher-container" for="volume-switcher"></label>
+
+    <center>
+      <h1
+        style="
+          color: red;
+          background-color: black;
+          padding-top: 30px;
+          padding-bottom: 30px;
+        "
+      >
+        New Arrival
+      </h1>
+    </center>
+    <hr />
+    <div class="container-box">
+      <div class="product-container">
+        <div class="product-card"><img src="Assest/image/topi.jpg" /></div>
+        <div class="product-card"><img src="Assest/image/tayar.jpg" /></div>
+        <div class="product-card">
+          <img src="Assest/image/sidemirror.jpg" />
+        </div>
+        <div class="product-card"><img src="Assest/image/polish.jpg" /></div>
+        <div class="product-card"><img src="Assest/image/minyak.jpg" /></div>
+        <div class="product-card"><img src="Assest/image/cat.jpg" /></div>
+      </div>
+    </div>
+
+    <hr />
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31907.794939430787!2d103.7757874!3d1.487186!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da6d8073d6f8b5%3A0xf16b8f7c112a37b1!2sSmart%26easy%20car%20rental%20jb.!5e0!3m2!1sen!2smy!4v1673890420763!5m2!1sen!2smy"
+      width="100%"
+      height="400px"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+
+    <hr />
+
+    <div class="footer">
+      <div class="container-footer">
+        <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+      </div>
+      <div class="container-footer">
+        <h3>Address</h3>
+        <p style="font-size: 13pt">
+          Kajang Utama,Bandar Teknologi Kajang, Semenyih,Kajang 1.5 Storey Link
+          Factory @ kajang utama, Selangor
+        </p>
+      </div>
+      <div class="container-footer">
+        <p style="font-size: 12pt; padding-top: 130px">
+          ©Copyright by Mat Motor Team
+        </p>
+      </div>
+    </div>
+
+    <script>
+      [...document.querySelectorAll(".product-container")].forEach(
+        (container, n = !1, i = void 0, r = void 0, a = !1, t = 0) => {
+          container.addEventListener("mousedown", function (e) {
+            (n = !0), this.classList.add("active");
+            (i = e.pageX - this.offsetLeft), (r = this.scrollLeft);
+          });
+          container.addEventListener("mouseleave", function (e) {
+            (n = !1), this.classList.remove("active");
+          });
+          container.addEventListener("mouseup", function (e) {
+            a && (e.preventDefault(), (a = !1)),
+              (n = !1),
+              this.classList.remove("active");
+          });
+          container.addEventListener("mousemove", function (e) {
+            var t;
+            n &&
+              (e.preventDefault(),
+              (t = e.pageX - this.offsetLeft),
+              (t = r - 3 * (t - i)),
+              console.log(e.movementX),
+              5 < Math.abs(this.scrollLeft - t) && (a = !0),
+              (this.scrollLeft = t));
+          });
+        }
+      );
+    </script>
+
+    <script>
+      function showTime() {
+        var date = new Date();
+        var h = date.getHours(); // 0 - 23
+        var m = date.getMinutes(); // 0 - 59
+        var s = date.getSeconds(); // 0 - 59
+        var session = "AM";
+
+        if (h == 0) {
+          h = 12;
+        }
+
+        if (h > 12) {
+          h = h - 12;
+          session = "PM";
+        }
+
+        h = h < 10 ? "0" + h : h;
+        m = m < 10 ? "0" + m : m;
+        s = s < 10 ? "0" + s : s;
+
+        var time = h + ":" + m + ":" + s + " " + session;
+        document.getElementById("MyClockDisplay").innerText = time;
+        document.getElementById("MyClockDisplay").textContent = time;
+
+        setTimeout(showTime, 1000);
+      }
+
+      showTime();
+    </script>
+
+    <script>
+      document.querySelector("#volume-switcher").onchange = function () {
+        document.querySelector("#theplayer").muted = !this.checked;
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,260 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ddd;
+}
+
+/*Header*/
+
+.header {
+  background-color: #006400;
+  padding: 10px;
+  min-height: 15%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+/*Sticky Navbar*/
+
+.top {
+  height: 1px;
+  background: black;
+  top: 0;
+  z-index: 2;
+  position: sticky;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #051a05;
+  box-shadow: 0 2px 5px rgba(112, 115, 112, 0.421);
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #808080;
+  color: black;
+}
+
+.navbar a.active {
+  background-color: #5cff5c;
+  color: white;
+}
+
+/*Dropdown button*/
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown button {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 14px;
+  min-width: 160px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown button:hover {
+  background-color: #808080;
+  color: black;
+}
+
+.dropdown button.active {
+  background-color: #5cff5c;
+  color: white;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*Feedback hover*/
+.feedback {
+  float: right;
+}
+
+.feedback img:hover {
+  background-color: #808080;
+}
+
+/*Footer*/
+
+.footer {
+  position: relative;
+  float: left;
+  bottom: 0;
+  width: 100%;
+  height: 300px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #006400;
+  color: white;
+  text-align: center;
+}
+
+.container-footer {
+  padding: 10px;
+  max-height: 300px;
+  width: 30%;
+  float: left;
+  position: relative;
+}
+
+/*Clock Footer*/
+.clock {
+  position: relative;
+  top: 150px;
+  padding-top: 130px;
+  padding-bottom: 130px;
+  background-color: #051a05;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: #ffffff;
+  font-size: 25px;
+  font-family: Orbitron;
+  letter-spacing: 10px;
+}
+
+/*Grab Slider*/
+.container-box {
+  max-width: 80%;
+  margin: auto;
+  margin-bottom: 30px;
+  overflow: hidden;
+  border: groove 20px;
+}
+
+.product-container {
+  display: flex;
+  margin-left: 2%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+}
+.product-container::-webkit-scrollbar {
+  display: none;
+}
+.product-container.active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+  scroll-snap-type: unset;
+}
+.product-card {
+  display: flex;
+  min-width: 320px;
+  max-height: 500px;
+  max-width: 320px;
+  margin-right: 18px;
+  scroll-snap-align: start;
+}
+.product-card img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* checkbox hide */
+#volume-switcher {
+  display: none;
+}
+
+/* volume on : container */
+#switcher-container {
+  display: block;
+  position: relative;
+  width: 80%;
+  height: auto;
+  margin-left: 10%;
+  cursor: pointer;
+  opacity: 0.8;
+  filter: invert(1); /* changer couleur icon */
+  background-color: rgba(255, 255, 255, 0.4);
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in 0s;
+}
+
+/* volume on : button */
+#switcher-container:after {
+  content: "";
+  border: 0px solid black;
+  background: url(https://res.cloudinary.com/quentindigital/image/upload/v1598656567/icons/sound-off_rhwz0o.svg)
+    center center;
+  background-size: 100%;
+  bottom: 10px;
+  right: 10px;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+}
+
+#switcher-container:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0);
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in 0s;
+}
+
+/* volume off : container */
+#volume-switcher:checked + #switcher-container {
+  background-color: rgba(255, 255, 255, 0);
+  opacity: 0.1;
+  -webkit-transition: all 0.7s ease-in 1s;
+  -moz-transition: all 0.7s ease-in 1s;
+  transition: all 0.7s ease-out 1s;
+}
+
+/* volume off : hover */
+#volume-switcher:checked + #switcher-container:hover {
+  opacity: 0.8;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  transition: opacity 0.3s ease-out 0s;
+}
+
+/* volume off : button */
+#volume-switcher:checked + #switcher-container:after {
+  right: 10px;
+  content: "";
+  background: url(https://res.cloudinary.com/quentindigital/image/upload/v1598656567/icons/sound-on_vztd3h.svg)
+    center center;
+  background-size: 100%;
+}
